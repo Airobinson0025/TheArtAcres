@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model for authentication
+model User {
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  password String
+  name     String
+  username String  @unique
+  bio      String? // Optinal bio field
+  arts     Art[]
+}
+
+// Art model representing pieces of art
+model Art {
+  id       Int    @id @default(autoincrement())
+  title    String
+  artist   String
+  imageUrl String
+  price    Float
+  ownerId  Int
+  owner    User   @relation(fields: [ownerId], references: [id])
+}
