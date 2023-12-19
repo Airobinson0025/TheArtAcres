@@ -10,24 +10,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// User model for authentication
 model User {
-  id       Int     @id @default(autoincrement())
-  email    String  @unique
-  password String
-  name     String
-  username String  @unique
-  bio      String? // Optinal bio field
-  arts     Art[]
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  account   Account?
 }
 
-// Art model representing pieces of art
+model Account {
+  id         Int     @id @default(autoincrement())
+  profilePic String?
+  bio        String?
+  user       User    @relation(fields: [userId], references: [id])
+  userId     Int     @unique
+  arts       Art[]
+}
+
 model Art {
-  id       Int    @id @default(autoincrement())
-  title    String
-  artist   String
-  imageUrl String
-  price    Float
-  ownerId  Int
-  owner    User   @relation(fields: [ownerId], references: [id])
+  id          Int      @id @default(autoincrement())
+  image       String
+  title       String
+  price       Float
+  description String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  account     Account  @relation(fields: [accountId], references: [id])
+  accountId   Int
 }

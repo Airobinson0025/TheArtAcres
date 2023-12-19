@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       fontFamily: {
         'rethink': ['Rethink Sans', 'sans-serif'],
-        'nemek' : ['Nemek Gothic', 'black'],
+        'nemek' : ['Nemek Gothic', 'normal'],
         'work': ['Work Sans', 'san-serif']
       }
     },
