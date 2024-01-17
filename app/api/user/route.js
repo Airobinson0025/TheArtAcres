@@ -1,51 +1,66 @@
-import prisma from '@/lib/db'
-import { NextResponse } from 'next/server'
-import { hash } from 'bcrypt'
+import prisma from '@/lib/db';
+import { compare, hash } from 'bcrypt';
+import { NextResponse } from 'next/server';
 
-//! CREATES USER
-
-export async function POST( request ) {
+export async function POST( req ) {
     try {
-        const body = await request.json()
-        const { name, email, username, password } = body
-        
-        //!check if email already exists
+        const body =await req.json()
+        const { email, password } = body
+
+        //! checks for existing email
         const existingUserByEmail = await prisma.user.findUnique({
             where: { email: email }
         });
-        if(existingUserByEmail) {
-            return NextResponse.json({ user: null, message: 'User with this email already exists'}, { status: 409 })
+        if( existingUserByEmail ) {
+            return NextResponse.json({ user: null, message: "User with this email already exists"}, { status: 409})
         }
-        //!check if username already exists
-        const existingUserByUsername = await prisma.user.findUnique({
-            where: { username: username }
-        });
-        if(existingUserByUsername) {
-            return NextResponse.json({ user: null, message: 'Username already exists'}, { status: 409 })
-        }
+        
 
-        const hashedPassword = await hash(password, 25)
-
+        //! creates new user
+        const hashedPassword= await hash(password, 10)
+        
         const newUser = await prisma.user.create({
             data: {
-                name,
                 email,
-                username,
-                password: hashedPassword,
-
+                password: hashedPassword
             }
-        });
+        })
 
         const { password: newUserPassword, ...rest } = newUser
-
-        return NextResponse.json({ user: rest, message: 'User created successfully'})
-
-
-
-    } catch (error) {
         
+        return NextResponse.json({ user: rest , message: "User Created Successfully"})
+    } catch (error) {
+        return NextResponse.json({error: error.message ||"An unexpected error occurred"}, {status: 500})
+    }
+} 
+
+
+export async function GET( req ) {
+    try {
+        const body = req.json();
+        const { email, password } = body;
+
+        //! find user by email
+        const user = await prisma.user.findUnique({
+            where: { email: email }
+        });
+
+        //! checks if user exists
+        if(!user) {
+            return NextResponse.json({ message: "Email or Password are invalid"}, { status: 404 })
+        }
+        
+        //! Compares provided password with the stored hashed password
+        const isMatch = await compare(password, user.password);
+        if(!isMatch) {
+            return NextResponse.json({ message: "Email or Password are invalid"}, { status: 401 })
+        }
+        
+        //! Removes password before returning data
+        const { password: userPassword, ...rest } = user;
+
+        return NextResponse.json({ user: rest, message: "Sign in successful"})
+    } catch (error) {
+        return NextResponse.json({ error: error.message || "An unexpected error occurred."})
     }
 }
-
-
-
