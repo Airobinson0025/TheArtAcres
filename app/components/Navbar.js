@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 
 const Navbar = () => {
   return (
-    <header className='flex items-center justify-between font-rethink fixed w-full p-3 text-white'>
+    <header className='flex items-center justify-between fixed w-full p-3 text-white'>
         <h1 className='text-[1.75rem] tracking-wide uppercase font-bold'>
             <Link href="/" className='font-nemek tracking-normal'>Art Acres</Link>
         </h1>

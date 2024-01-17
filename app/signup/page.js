@@ -48,12 +48,12 @@ const SignUp = () => {
     return (
         <div className='bg-neutral-950 h-screen flex flex-col items-center justify-center'>
             <div>
-                <h1 className='font-nemek text-[2rem] md:text-[1.75rem] text-white mb-10 md:mt-20 signup-header'>
+                <h1 className='font-nemek text-[2.2rem] text-white mb-8 signup-header md:mt-14'>
                     Create Account
                 </h1>
             </div>
             <section className='w-full sm:max-w-[550px] px-8'>
-                <form onSubmit={handleSubmit} className='flex flex-col space-y-3 font-rethink text-white'>
+                <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-rethink text-white'>
                     <label className='text-[#AF4923] text-xl md:text-xl font-nemek tracking-widest signup-label'>Email:</label>
                     <input 
                         className='bg-neutral-950 outline-none border-2 border-white py-1 pl-2 text-md md:text-[1.1rem] tracking-wide rounded-md'
@@ -79,9 +79,9 @@ const SignUp = () => {
                         </i>
                     </div>
                     
-                    <div className='text-sm md:text-[1rem] text-left md:text-center space-y-2 pt-4'>
+                    <div className='text-sm md:text-[1rem] text-center space-y-2 pt-6'>
                         <p>Password must be at least 8 characters long: {passwordValidation.minLength ? <HiCheckCircle size={22} className='inline ' color='#228B22'/> : <HiMiniExclamationCircle size={22} className='inline' color='#AF4923'/>}</p>
-                        <p>Password must include at least one special character: {passwordValidation.specialChar ? <HiCheckCircle size={22} className='inline' color='#228B22'/> : <HiMiniExclamationCircle size={22} className='inline' color='#AF4923'/>}</p>
+                        <p>Password must include one special character: {passwordValidation.specialChar ? <HiCheckCircle size={22} className='inline' color='#228B22'/> : <HiMiniExclamationCircle size={22} className='inline' color='#AF4923'/>}</p>
                     </div>
 
                     <div className='text-center pt-8'>
