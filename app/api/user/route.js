@@ -1,38 +1,46 @@
 import prisma from '@/lib/db';
-import { compare, hash } from 'bcrypt';
+import { hash } from 'bcrypt';
 import { NextResponse } from 'next/server';
 
-export async function POST( req ) {
-    try {
-        const body =await req.json()
-        const { email, password } = body
+const validatePassword = (password) => {
+    const minLength = 8;
+    const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
 
-        //! checks for existing email
+    return password.length >= minLength && specialCharRegex.test(password);
+};
+
+export async function POST(req) {
+    try {
+        const body = await req.json();
+        const { email, password } = body;
+
+        if (!validatePassword(password)) {
+            return NextResponse.json({ message: "Password must be at least 8 characters long and include at least one special character" }).status(400);
+        }
+
         const existingUserByEmail = await prisma.user.findUnique({
             where: { email: email }
         });
-        if( existingUserByEmail ) {
-            return NextResponse.json({ user: null, message: "User with this email already exists"}, { status: 409})
+        if (existingUserByEmail) {
+            return NextResponse.json({ user: null, message: "User with this email already exists" }).status(409);
         }
-        
 
-        //! creates new user
-        const hashedPassword= await hash(password, 10)
-        
+        const hashedPassword = await hash(password, 10);
+
         const newUser = await prisma.user.create({
             data: {
                 email,
                 password: hashedPassword
             }
-        })
+        });
 
-        const { password: newUserPassword, ...rest } = newUser
-        
-        return NextResponse.json({ user: rest , message: "User Created Successfully"})
+        const { password: newUserPassword, ...rest } = newUser;
+
+        return NextResponse.json({ user: rest, message: "User Created Successfully" });
     } catch (error) {
-        return NextResponse.json({error: error.message ||"An unexpected error occurred"}, {status: 500})
+        return NextResponse.json({ error: error.message || "An unexpected error occurred" }).status(500);
     }
-} 
+}
 
 
 export async function GET( req ) {

@@ -25,7 +25,7 @@ const Navbar = () => {
 
         <div className='md:hidden'>
             <i>
-                <GiHamburgerMenu className='text-4xl hover:cursor-pointer' />
+                <GiHamburgerMenu size={32} className='hover:cursor-pointer' />
             </i>
         </div>
 
