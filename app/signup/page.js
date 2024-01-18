@@ -1,7 +1,8 @@
 'use client';
 import React, { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { HiCheckCircle, HiMiniExclamationCircle } from 'react-icons/hi2'
+import { FaCircleXmark, FaCircleCheck } from 'react-icons/fa6'
 
 const SignUp = () => {
     const [togglePassword, setTogglePassword] = useState(false);
@@ -24,6 +25,8 @@ const SignUp = () => {
         });
     };
 
+    const router = useRouter();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -34,11 +37,14 @@ const SignUp = () => {
 
     
         try {
-            fetch('api/user', {
+            const response= await fetch('api/user', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password })
-            });
+            })
+            if(response.ok) {
+                router.push('/account')
+            }
 
         } catch (error) {
             console.error(error);
@@ -52,9 +58,9 @@ const SignUp = () => {
                     Create Account
                 </h1>
             </div>
-            <section className='w-full sm:max-w-[550px] px-8'>
-                <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-rethink text-white'>
-                    <label className='text-[#AF4923] text-xl md:text-xl font-nemek tracking-widest signup-label'>Email:</label>
+            <section className='w-full sm:max-w-[580px] px-8'>
+                <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-work text-white'>
+                    <label className='text-[#AF4923] text-xl md:text-xl font-nemek tracking-wider signup-label'>Email:</label>
                     <input 
                         className='bg-neutral-950 outline-none border-2 border-white py-1 pl-2 text-md md:text-[1.1rem] tracking-wide rounded-md'
                         type='email'
@@ -64,7 +70,7 @@ const SignUp = () => {
                         required
                     />
 
-                    <label className='text-[#AF4923] text-xl md:text-xl font-nemek tracking-widest signup-label'>Password:</label>
+                    <label className='text-[#AF4923] text-xl md:text-xl font-nemek tracking-wider signup-label'>Password:</label>
                     <div className='flex justify-between items-center border-2 border-white py-1 pl-2 rounded-md'>
                         <input 
                             className='bg-neutral-950 outline-none text-md md:text-[1.1rem] tracking-wide'
@@ -79,9 +85,9 @@ const SignUp = () => {
                         </i>
                     </div>
                     
-                    <div className='text-sm md:text-[1rem] text-center space-y-2 pt-6'>
-                        <p>Password must be at least 8 characters long: {passwordValidation.minLength ? <HiCheckCircle size={22} className='inline ' color='#228B22'/> : <HiMiniExclamationCircle size={22} className='inline' color='#AF4923'/>}</p>
-                        <p>Password must include one special character: {passwordValidation.specialChar ? <HiCheckCircle size={22} className='inline' color='#228B22'/> : <HiMiniExclamationCircle size={22} className='inline' color='#AF4923'/>}</p>
+                    <div className='text-[1rem] md:text-[1.1rem] text-center space-y-2 pt-6'>
+                        <p>Must be at least 8 characters long: {passwordValidation.minLength ? <FaCircleCheck size={19} className='inline ' color='#5FD85F'/> : <FaCircleXmark size={19} className='inline' color='white'/>}</p>
+                        <p>Must include one special character: {passwordValidation.specialChar ? <FaCircleCheck size={19} className='inline' color='#5FD85F'/> : <FaCircleXmark size={19} className='inline' color='white'/>}</p>
                     </div>
 
                     <div className='text-center pt-8'>

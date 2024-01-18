@@ -10,7 +10,7 @@ const Navbar = () => {
         </h1>
 
         <nav className='hidden md:inline'>
-            <ul className='flex items-center space-x-8 text-[1.2rem] uppercase tracking-wide font-bold'>
+            <ul className='flex items-center space-x-8 text-[1.2rem] uppercase tracking-wide font-work font-bold'>
                 <li className='hover:scale-105 transition duration-150'>
                     <Link href="/about">About</Link>
                 </li>
