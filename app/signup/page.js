@@ -52,7 +52,7 @@ const SignUp = () => {
     };
 
     return (
-        <div className='bg-neutral-950 h-screen flex flex-col items-center justify-center'>
+        <div className='h-screen flex flex-col items-center justify-center bg-cover bg-center acres-signup'>
             <div>
                 <h1 className='font-nemek text-[2.2rem] text-white mb-8 signup-header md:mt-14'>
                     Become a memeber
@@ -63,7 +63,7 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-work text-white'>
                     <label className='text-white text-xl md:text-xl font-nemek tracking-wider signup-label'>Email:</label>
                     <input 
-                        className='bg-neutral-950 outline-none border-2 border-white py-1 pl-2 text-md md:text-[1.1rem] tracking-wide rounded-md'
+                        className='bg-transparent outline-none border-2 border-white py-1 pl-2 text-md md:text-[1.1rem] tracking-wide rounded-md'
                         type='email'
                         placeholder='Email'
                         value={email}
@@ -74,7 +74,7 @@ const SignUp = () => {
                     <label className='text-white text-xl md:text-xl font-nemek tracking-wider signup-label'>Password:</label>
                     <div className='flex justify-between items-center border-2 border-white py-1 pl-2 rounded-md'>
                         <input 
-                            className='bg-neutral-950 outline-none text-md md:text-[1.1rem] tracking-wide'
+                            className='bg-transparent outline-none text-md md:text-[1.1rem] tracking-wide'
                             type={togglePassword ? 'text' : 'password'}
                             placeholder='Password'
                             value={password}

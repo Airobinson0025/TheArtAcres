@@ -11,9 +11,9 @@
     font-display: swap;
 }
 
-.banner {
-    background-image: url('/AcresBanner6.jpg');
-    
+
+.acres-signup {
+    background-image: url('/SignUp_Bg.jpg');
 }
 
 .banner-heading {
