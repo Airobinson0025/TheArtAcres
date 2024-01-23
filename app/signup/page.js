@@ -43,8 +43,10 @@ const SignUp = () => {
                 body: JSON.stringify({ email, password })
             })
             if(response.ok) {
+                const data = await response.json();
+                localStorage.setItem('token', data.token)
                 router.push('/account')
-            }
+            } 
 
         } catch (error) {
             console.error(error);
@@ -54,27 +56,27 @@ const SignUp = () => {
     return (
         <div className='h-screen flex flex-col items-center justify-center bg-cover bg-center acres-signup'>
             <div>
-                <h1 className='font-nemek text-[2.2rem] text-white mb-8 signup-header md:mt-14'>
+                <h1 className='font-nemek text-[2rem] sm:text-[2.3rem] text-white mb-12 signup-header md:mt-14'>
                     Become a memeber
                 </h1>
             </div>
             
             <section className='w-full sm:max-w-[580px] px-8'>
                 <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-work text-white'>
-                    <label className='text-white text-xl md:text-xl font-nemek tracking-wider signup-label'>Email:</label>
+                    <label className='text-white text-xl md:text-2xl font-nemek tracking-widest signup-label'>Email:</label>
                     <input 
-                        className='bg-transparent outline-none border-2 border-white py-1 pl-2 text-md md:text-[1.1rem] tracking-wide rounded-md'
+                        className='bg-transparent outline-none border-2 border-white py-1 pl-2 text-lg md:text-[1.2rem] placeholder:text-neutral-500 tracking-wide rounded-md'
                         type='email'
-                        placeholder='Email'
+                        placeholder='Enter Valid Email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
 
-                    <label className='text-white text-xl md:text-xl font-nemek tracking-wider signup-label'>Password:</label>
+                    <label className='text-white text-xl md:text-2xl font-nemek tracking-widest signup-label'>Password:</label>
                     <div className='flex justify-between items-center border-2 border-white py-1 pl-2 rounded-md'>
                         <input 
-                            className='bg-transparent outline-none text-md md:text-[1.1rem] tracking-wide'
+                            className='bg-transparent outline-none text-lg md:text-[1.2rem] placeholder:text-neutral-500 tracking-wide'
                             type={togglePassword ? 'text' : 'password'}
                             placeholder='Password'
                             value={password}
@@ -92,7 +94,7 @@ const SignUp = () => {
                     </div>
 
                     <div className='text-center pt-8'>
-                        <button type='submit' className='border-2 border-white py-2 px-6 rounded-md font-rethink font-semibold text-[1rem] text-white uppercase tracking-wider hover:bg-white hover:text-neutral-950 hover:scale-55 transition duration-200 shadow-lg shadow-black'>
+                        <button type='submit' className='border-2 border-white py-2 px-6 rounded-md font-rethink font-semibold text-[1.1rem] text-white uppercase tracking-wider hover:bg-white hover:text-neutral-950 hover:scale-55 transition duration-200 shadow-lg shadow-black'>
                             create
                         </button>
                     </div>

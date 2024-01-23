@@ -1,13 +1,16 @@
-import prisma from '@/lib/db';
 import { hash } from 'bcrypt';
 import { NextResponse } from 'next/server';
+import jwt from 'jsonwebtoken';
+import prisma from '@/lib/db'; 
 
-const validatePassword = (password) => {
+const JWT_SECRET = process.env.JWT_SECRET; 
+
+
+function validatePassword(password) {
     const minLength = 8;
     const specialCharRegex = /[!@#$%^&*(),.?":{}|<>]/;
-
     return password.length >= minLength && specialCharRegex.test(password);
-};
+}
 
 export async function POST(req) {
     try {
@@ -15,14 +18,24 @@ export async function POST(req) {
         const { email, password } = body;
 
         if (!validatePassword(password)) {
-            return NextResponse.json({ message: "Password must be at least 8 characters long and include at least one special character" }).status(400);
+            return new NextResponse(JSON.stringify({ message: "Password must be at least 8 characters long and include at least one special character" }), {
+                status: 400,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
         }
 
         const existingUserByEmail = await prisma.user.findUnique({
             where: { email: email }
         });
         if (existingUserByEmail) {
-            return NextResponse.json({ user: null, message: "User with this email already exists" }).status(409);
+            return new NextResponse(JSON.stringify({ user: null, message: "User with this email already exists" }), {
+                status: 409,
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
         }
 
         const hashedPassword = await hash(password, 10);
@@ -34,41 +47,27 @@ export async function POST(req) {
             }
         });
 
-        const { password: newUserPassword, ...rest } = newUser;
+        const { password: newUserPassword, ...userWithoutPassword } = newUser;
 
-        return NextResponse.json({ user: rest, message: "User Created Successfully" });
-    } catch (error) {
-        return NextResponse.json({ error: error.message || "An unexpected error occurred" }).status(500);
-    }
-}
+        const token = jwt.sign(
+            { userId: userWithoutPassword.id, email: userWithoutPassword.email },
+            JWT_SECRET,
+            { expiresIn: '24h' }
+        );
 
-
-export async function GET( req ) {
-    try {
-        const body = req.json();
-        const { email, password } = body;
-
-        //! find user by email
-        const user = await prisma.user.findUnique({
-            where: { email: email }
+        return new NextResponse(JSON.stringify({ user: userWithoutPassword, token, message: "User Created Successfully" }), {
+            status: 200,
+            headers: {
+                'Content-Type': 'application/json',
+            },
         });
-
-        //! checks if user exists
-        if(!user) {
-            return NextResponse.json({ message: "Email or Password are invalid"}, { status: 404 })
-        }
-        
-        //! Compares provided password with the stored hashed password
-        const isMatch = await compare(password, user.password);
-        if(!isMatch) {
-            return NextResponse.json({ message: "Email or Password are invalid"}, { status: 401 })
-        }
-        
-        //! Removes password before returning data
-        const { password: userPassword, ...rest } = user;
-
-        return NextResponse.json({ user: rest, message: "Sign in successful"})
     } catch (error) {
-        return NextResponse.json({ error: error.message || "An unexpected error occurred."})
+        return new NextResponse(JSON.stringify({ error: error.message || "An unexpected error occurred" }), {
+            status: 500,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
     }
 }
+
