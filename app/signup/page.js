@@ -56,7 +56,7 @@ const SignUp = () => {
     return (
         <div className='h-screen flex flex-col items-center justify-center bg-cover bg-center acres-signup'>
             <div>
-                <h1 className='font-nemek text-[2rem] sm:text-[2.3rem] text-white mb-12 signup-header md:mt-14'>
+                <h1 className='font-nemek text-[1.9rem] sm:text-[2.3rem] text-white mb-14 signup-header md:mt-14'>
                     Become a memeber
                 </h1>
             </div>
@@ -65,7 +65,7 @@ const SignUp = () => {
                 <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-work text-white'>
                     <label className='text-white text-xl md:text-2xl font-nemek tracking-widest signup-label'>Email:</label>
                     <input 
-                        className='bg-transparent outline-none border-2 border-white py-1 pl-2 text-lg md:text-[1.2rem] placeholder:text-neutral-500 tracking-wide rounded-md'
+                        className='bg-white outline-none border-2 border-white py-1 pl-2 text-lg md:text-[1.2rem] placeholder:text-neutral-500 tracking-wide rounded-lg shadow-lg shadow-neutral-950/80'
                         type='email'
                         placeholder='Enter Valid Email'
                         value={email}
@@ -74,9 +74,9 @@ const SignUp = () => {
                     />
 
                     <label className='text-white text-xl md:text-2xl font-nemek tracking-widest signup-label'>Password:</label>
-                    <div className='flex justify-between items-center border-2 border-white py-1 pl-2 rounded-md'>
+                    <div className='flex justify-between items-center border-2 border-white py-1 pl-2 rounded-lg bg-white shadow-lg shadow-neutral-950/80'>
                         <input 
-                            className='bg-transparent outline-none text-lg md:text-[1.2rem] placeholder:text-neutral-500 tracking-wide'
+                            className='outline-none text-lg md:text-[1.2rem] placeholder:text-neutral-500 tracking-wide'
                             type={togglePassword ? 'text' : 'password'}
                             placeholder='Password'
                             value={password}
@@ -84,7 +84,7 @@ const SignUp = () => {
                             required 
                         />
                         <i onClick={handleTogglePassword} className='cursor-pointer'>
-                            {togglePassword ? <FaEyeSlash size={22} color='white' className='mr-3' /> : <FaEye size={22} color='white' className='mr-3' />}
+                            {togglePassword ? <FaEyeSlash size={22} color='#404040' className='mr-3' /> : <FaEye size={22} color='#404040' className='mr-3' />}
                         </i>
                     </div>
                     
@@ -94,7 +94,7 @@ const SignUp = () => {
                     </div>
 
                     <div className='text-center pt-8'>
-                        <button type='submit' className='border-2 border-white py-2 px-6 rounded-md font-rethink font-semibold text-[1.1rem] text-white uppercase tracking-wider hover:bg-white hover:text-neutral-950 hover:scale-55 transition duration-200 shadow-lg shadow-black'>
+                        <button type='submit' className='bg-white py-2 px-6 rounded-md font-rethink font-semibold text-[1.1rem] text-neutral-700 uppercase tracking-wide hover:bg-neutral-700 hover:text-white hover:scale-55 transition duration-200 shadow-lg shadow-neutral-950/80'>
                             create
                         </button>
                     </div>
