@@ -16,6 +16,10 @@
     background-image: url('/SignUp_Bg_3.jpg');
 }
 
+.acres-account {
+    background-image: url('/account-info-bg-2.jpg');
+}
+
 .banner-heading {
     text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
 }
@@ -33,5 +37,12 @@
 }
 
 .signup-label {
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
+}
+.account-info-header {
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
+}
+
+.account-info-lable {
     text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Banner = () => {
   return (
-    <div className='relative h-[750px] md:h-[650px] flex items-center justify-center'>
+    <div className='relative h-[750px] md:h-[600px] flex items-center justify-center'>
       {/* Background Video */}
       <video playsInline autoPlay muted loop className='absolute top-0 left-0 w-full h-full object-cover -z-10'>
         <source src='/acres-banner-vid.mp4' type='video/mp4' />

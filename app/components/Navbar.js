@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from 'react-icons/gi'
 const Navbar = () => {
   return (
     <header className='flex items-center justify-between fixed w-full p-3 text-white'>
-        <h1 className='text-[1.75rem] tracking-wide uppercase font-bold cursor-pointer'>
+        <h1 className='text-[1.5rem] tracking-wide uppercase font-bold cursor-pointer'>
             <Link href="/" className='font-nemek tracking-normal'>Art Acres</Link>
         </h1>
 
@@ -25,7 +25,7 @@ const Navbar = () => {
 
         <div className='md:hidden'>
             <i>
-                <GiHamburgerMenu size={32} className='hover:cursor-pointer' />
+                <GiHamburgerMenu size={30} className='hover:cursor-pointer' />
             </i>
         </div>
 
