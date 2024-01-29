@@ -10,7 +10,8 @@ module.exports = {
       fontFamily: {
         'rethink': ['Rethink Sans', 'sans-serif'],
         'nemek' : ['Nemek Gothic', 'normal'],
-        'work': ['Work Sans', 'san-serif']
+        'work': ['Work Sans', 'sans-serif'],
+        'jost': ['Jost', 'sans-serif']
       }
     },
   },
