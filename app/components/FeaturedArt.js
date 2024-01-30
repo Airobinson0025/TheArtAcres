@@ -10,32 +10,51 @@ const arts = [
     },
     { 
       id:'2',
-      title: "Miami Summer",
-      price: "200.99",
+      title: "My Vase",
+      price: "114.99",
       image: "https://images.unsplash.com/photo-1575995872537-3793d29d972c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fGFydHxlbnwwfHwwfHx8MA%3D%3D"
   },
   { 
     id:'3',
-    title: "Miami Summer",
-    price: "200.99",
+    title: "Broken Heart",
+    price: "169.99",
     image: "https://images.unsplash.com/photo-1604367233962-bce0799fbe9a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzF8fGFydHxlbnwwfHwwfHx8MA%3D%3D"
 },
 { 
   id:'4',
-  title: "Miami Summer",
-  price: "200.99",
+  title: "Crowded City",
+  price: "245.99",
   image: "https://images.unsplash.com/photo-1618331835717-801e976710b2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fGFydHxlbnwwfHwwfHx8MA%3D%3D"
+},
+{ 
+  id:'4',
+  title: "Cat Portrait",
+  price: "75.99",
+  image: "https://images.unsplash.com/photo-1550532422-378e93ec379c?q=80&w=1335&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+},
+{ 
+  id:'4',
+  title: "Hungry Cop",
+  price: "400.99",
+  image: "https://images.unsplash.com/photo-1545050814-0a22f900193e?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTUwfHxhcnR8ZW58MHx8MHx8fDA%3D"
+},
+{ 
+  id:'4',
+  title: "The Motherboard",
+  price: "209.99",
+  image: "https://images.unsplash.com/photo-1533158628620-7e35717d36e8?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjk1fHxhcnR8ZW58MHx8MHx8fDA%3D"
 }
+
 ]
 
 const FeaturedArt = () => {
   return (
-    <div className='px-6 flex flex-col items-center sm:items-start'>
-        <div className='my-6 text-left'>
-            <h1 className='font-jost font-bold text-[3rem] text-neutral-950 tracking-wider uppercase '>Featured Today</h1>
+    <div className='mx-7 flex flex-col items-center justify-center'>
+        <div className='my-8 text-center'>
+            <h1 className='font-jost font-bold text-[3rem] sm:text-[2.5rem] text-neutral-950 tracking-wider uppercase '>Today's <br className='sm:hidden'/> Featured <br className='sm:hidden'/> Art</h1>
         </div>
 
-        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 justify-center items-center'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-14 justify-center items-center'>
           {arts.map((art) => (
             <ArtsCard
             key={art.id}
@@ -49,3 +68,4 @@ const FeaturedArt = () => {
 }
 
 export default FeaturedArt
+  

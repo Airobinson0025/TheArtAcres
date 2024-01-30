@@ -2,7 +2,8 @@
 import React, { useState } from 'react';
 
 const AccountInfo = () => {
-    const [name, setName] = useState('');
+    const [firstName, setFirstName] = useState('');
+    const [ lastName, setLastName ] = useState('');
     const [username, setUsername] = useState('');
     const [phone, setPhone] = useState('');
     const [bio, setBio] = useState('');
@@ -16,13 +17,20 @@ const AccountInfo = () => {
             </div>
 
   
-            <form className='flex flex-col w-[400px] sm:w-[500px] md:w-[600px] pt-14 px-2 space-y-[12px] font-work text-[1.1rem]'>
+            <form className='flex flex-col w-[400px] sm:w-[500px] md:w-[600px] pt-14 px-2 space-y-4 font-work text-[1.1rem]'>
                 {/* Name Input */}
-                <label className='font-nemek md:text-[1.4rem] tracking-wider text-xl uppercase account-info-label'>Name</label>
+                <label className='font-nemek md:text-[1.4rem] tracking-wider text-xl uppercase account-info-label'>First Name</label>
                 <input 
-                    placeholder='Full Name'
-                    value={name}
-                    onChange={(e) => setName(e.target.value)} 
+                    placeholder='First Name'
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)} 
+                    className='bg-transparent backdrop-blur-xl border-2 border-white outline-none rounded-md placeholder:text-neutral-200 py-1 px-2'/>
+
+                <label className='font-nemek md:text-[1.4rem] tracking-wider text-xl uppercase account-info-label'>Last Name</label>
+                <input 
+                    placeholder='Last Name'
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)} 
                     className='bg-transparent backdrop-blur-xl border-2 border-white outline-none rounded-md placeholder:text-neutral-200 py-1 px-2'/>
 
                 {/* Username Input */}

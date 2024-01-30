@@ -13,11 +13,11 @@
 
 
 .acres-signup {
-    background-image: url('/SignUp_Bg_3.jpg');
+    background-image: url('https://images.unsplash.com/photo-1624359209425-05eb9b809795?q=80&w=1468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
 .acres-account {
-    background-image: url('/account-info-bg-2.jpg');
+    background-image: url('https://images.unsplash.com/photo-1624359209425-05eb9b809795?q=80&w=1468&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
 }
 
 .banner-heading {
@@ -43,6 +43,6 @@
     text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
 }
 
-.account-info-lable {
+.account-info-label {
     text-shadow: 2px 4px 3px rgba(0,0,0,0.5);
 }
