@@ -53,7 +53,7 @@ const FeaturedArt = () => {
     <div className='mx-7 flex flex-col items-center'>
         
         <div className='flex items-center justify-center md:justify-between mt-8 mb-14 text-center w-full'>
-            <h1 className='font-jost font-bold text-[3rem] sm:text-[2.5rem] text-neutral-950 tracking-wider uppercase '>Today's <br className='sm:hidden'/> Featured <br className='sm:hidden'/> Art</h1>
+            <h1 className='font-jost font-bold text-[3rem] sm:text-[2.5rem] text-neutral-950 tracking-wider uppercase '>Today&apos;s <br className='sm:hidden'/> Featured <br className='sm:hidden'/> Art</h1>
             <Link href='/browse' className='hidden md:inline'>
                 <button className='py-2 px-4 bg-red-700 border-2 border-red-700 font-jost font-medium text-white hover:bg-white hover:text-red-700 transition duration-200 rounded-md tracking-wide uppercase text-sm'>View All</button>
             </Link>
