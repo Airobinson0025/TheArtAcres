@@ -1,4 +1,6 @@
 import React from 'react';
+import { IoSearchCircle } from 'react-icons/io5';
+
 
 const Banner = () => {
   return (
@@ -13,10 +15,12 @@ const Banner = () => {
         <h1 className='uppercase text-[4.5rem] sm:text-[4.25rem] font-nemek tracking-wide banner-heading'>
           The <br className='sm:hidden'/> Art Acres
         </h1>
-        <h2 className='text-[1.2rem] sm:text-[1.4rem] font-bold font-rethink uppercase tracking-widest leading-10 sm:leading-none banner-subheading'>
+        <h2 className='text-[1.2rem] sm:text-[1.4rem] font-bold font-jost uppercase tracking-widest leading-10 sm:leading-none banner-subheading'>
           where creativity <br className='sm:hidden' /> finds a home
         </h2>
-        <nav className='space-x-6 pt-6 font-rethink'>
+        
+        
+        <nav className='space-x-6 pt-6 font-jost'>
           <a href='/signup'>
             <button className='text-[1rem] font-semibold uppercase tracking-widest py-2 px-4 sm:px-6 rounded-md border-2 border-white bg-transparent backdrop-blur-2xl hover:bg-white hover:text-[#040301] transition duration-200 shadow-md shadow-black/50'>
               start your journey

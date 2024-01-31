@@ -10,7 +10,7 @@ const ArtsCard = ({ image, title, price }) => {
         </div>
       </section>
 
-      <div className='p-4 text-center sm:text-left'>
+      <div className='mt-3 text-center sm:text-left'>
         <p className='font-jost font-medium text-xl tracking-wide mb-2'>{title}</p>
         <h2 className='font-jost text-lg tracking-wide'>${price}</h2>
         <button className='font-jost text-sm text-white uppercase tracking-wider bg-neutral-950 py-1 px-4 border-2 border-neutral-900 rounded-md hover:bg-white hover:text-neutral-950 transition duration-200 mt-2'>

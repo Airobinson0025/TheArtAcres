@@ -1,5 +1,6 @@
 import React from 'react'
 import ArtsCard from './ArtsCard'
+import Link from 'next/link'
 
 const arts = [
     {
@@ -22,7 +23,7 @@ const arts = [
 },
 { 
   id:'4',
-  title: "Crowded City",
+  title: "Crowded Street",
   price: "245.99",
   image: "https://images.unsplash.com/photo-1618331835717-801e976710b2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fGFydHxlbnwwfHwwfHx8MA%3D%3D"
 },
@@ -49,9 +50,13 @@ const arts = [
 
 const FeaturedArt = () => {
   return (
-    <div className='mx-7 flex flex-col items-center justify-center'>
-        <div className='my-8 text-center'>
+    <div className='mx-7 flex flex-col items-center'>
+        
+        <div className='flex items-center justify-center md:justify-between mt-8 mb-14 text-center w-full'>
             <h1 className='font-jost font-bold text-[3rem] sm:text-[2.5rem] text-neutral-950 tracking-wider uppercase '>Today's <br className='sm:hidden'/> Featured <br className='sm:hidden'/> Art</h1>
+            <Link href='/browse' className='hidden md:inline'>
+                <button className='py-2 px-4 bg-red-700 border-2 border-red-700 font-jost font-medium text-white hover:bg-white hover:text-red-700 transition duration-200 rounded-md tracking-wide uppercase text-sm'>View All</button>
+            </Link>
         </div>
 
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-14 justify-center items-center'>
@@ -63,6 +68,7 @@ const FeaturedArt = () => {
             price={art.price} />
           ))}
         </div>
+    
     </div>
   )
 }

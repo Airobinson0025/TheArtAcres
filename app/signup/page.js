@@ -61,11 +61,11 @@ const SignUp = () => {
                 </h1>
             </div>
             
-            <section className='w-full sm:max-w-[580px] px-8'>
-                <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-work text-white'>
-                    <label className='text-white text-xl md:text-2xl font-nemek tracking-widest signup-label'>Email:</label>
+            <section className='w-full sm:max-w-[500px] px-8'>
+                <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-jost text-white'>
+                    <label className='text-white text-xl md:text-xl font-jost tracking-wide signup-label'>Email:</label>
                     <input 
-                        className='bg-transparent backdrop-blur-lg outline-none border-2 border-white py-1 pl-2 text-[1.1rem] md:text-[1.2rem] placeholder:text-neutral-300 tracking-wide rounded-md shadow-lg shadow-neutral-950/80'
+                        className='bg-transparent backdrop-blur-xl outline-none border-2 border-white py-1 pl-2 text-[1.1rem] md:text-[1.2rem] placeholder:text-neutral-300 tracking-wide rounded-md shadow-lg shadow-neutral-950/80'
                         type='email'
                         placeholder='Enter Email'
                         value={email}
@@ -73,10 +73,10 @@ const SignUp = () => {
                         required
                     />
 
-                    <label className='text-white text-xl md:text-2xl font-nemek tracking-widest signup-label'>Password:</label>
+                    <label className='text-white text-xl md:text-xl font-jost tracking-wide signup-label'>Password:</label>
                     <div className='flex justify-between items-center border-2 border-white py-1 pl-2 rounded-md bg-transparent backdrop-blur-lg shadow-lg shadow-neutral-950/80'>
                         <input 
-                            className='bg-transparent backdrop-blur-md outline-none text-[1.1rem] md:text-[1.2rem] placeholder:text-neutral-300 tracking-wide'
+                            className='bg-transparent backdrop-blur-xl outline-none text-[1.1rem] md:text-[1.2rem] placeholder:text-neutral-300 tracking-wide'
                             type={togglePassword ? 'text' : 'password'}
                             placeholder='Password'
                             value={password}
@@ -89,12 +89,12 @@ const SignUp = () => {
                     </div>
                     
                     <div className='text-[1rem] md:text-[1.1rem] text-center space-y-2 pt-6'>
-                        <p>Must be at least 8 characters long: {passwordValidation.minLength ? <FaCircleCheck size={19} className='inline ' color='#5FD85F'/> : <FaCircleXmark size={19} className='inline' color='white'/>}</p>
-                        <p>Must include one special character: {passwordValidation.specialChar ? <FaCircleCheck size={19} className='inline' color='#5FD85F'/> : <FaCircleXmark size={19} className='inline' color='white'/>}</p>
+                        <p>Must be at least 8 characters long: {passwordValidation.minLength ? <FaCircleCheck size={20} className='inline ' color='#5FD85F'/> : <FaCircleXmark size={20} className='inline' color='white'/>}</p>
+                        <p>Must include one special character: {passwordValidation.specialChar ? <FaCircleCheck size={20} className='inline' color='#5FD85F'/> : <FaCircleXmark size={20} className='inline' color='white'/>}</p>
                     </div>
 
                     <div className='text-center pt-8'>
-                        <button type='submit' className='bg-white border-2 border-white py-2 px-6 rounded-md font-rethink font-semibold text-[1.rem] text-neutral-600 uppercase tracking-wide hover:bg-neutral-700 hover:text-white hover:scale-55 transition duration-200 shadow-lg shadow-neutral-950/80'>
+                        <button type='submit' className='bg-white border-2 border-white py-2 px-6 rounded-md font-jost font-semibold text-[1.rem] text-neutral-900 uppercase tracking-wider hover:bg-neutral-900 hover:text-white hover:scale-55 transition duration-200 shadow-lg shadow-neutral-950/80'>
                             create
                         </button>
                     </div>
