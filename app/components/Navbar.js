@@ -10,8 +10,8 @@ const Navbar = () => {
             <Link href="/" className='font-nemek tracking-normal'>Art Acres</Link>
         </h1>
 
-        <nav className='hidden md:inline'>
-            <ul className='flex items-center space-x-8 text-[1.2rem] uppercase tracking-wide font-jost font-bold'>
+        <nav className='hidden lg:inline'>
+            <ul className='flex items-center space-x-8 text-[1.1rem] uppercase tracking-wide font-jost font-bold'>
                 
                 <li className='hover:scale-105 transition duration-150 cursor-pointer'>
                     <Link href="/">Home</Link>
@@ -39,7 +39,7 @@ const Navbar = () => {
         </nav>
 
         {/* mobile menu icon */}
-        <div className='md:hidden'>
+        <div className='lg:hidden'>
             <i>
                 <GiHamburgerMenu size={30} className='hover:cursor-pointer' />
             </i>

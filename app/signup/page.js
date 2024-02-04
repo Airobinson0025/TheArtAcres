@@ -56,7 +56,7 @@ const SignUp = () => {
     return (
         <div className='h-screen flex flex-col items-center justify-center bg-cover bg-center acres-signup'>
             <div>
-                <h1 className='font-nemek text-[1.9rem] sm:text-[2.3rem] text-white mb-14 signup-header md:mt-14'>
+                <h1 className='font-nemek text-[2.0rem] text-white mb-14 signup-header md:mt-24'>
                     Become a memeber
                 </h1>
             </div>
