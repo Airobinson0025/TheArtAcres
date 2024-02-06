@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const ArtsCard = ({ image, title, price }) => {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col hover:scale-105 transition duration-200'>
       <section className='relative w-[310px] h-[390px] md:w-[300px] md:h-[350px] lg:w-[220px] lg:h-[280px] xl:w-[270px]'>
         <div className='absolute inset-0'>
           <Image src={image} layout='fill' objectFit='cover' sizes='100vw' alt='art' className='rounded-md' />
