@@ -56,16 +56,16 @@ const SignUp = () => {
     return (
         <div className='h-screen flex flex-col items-center justify-center bg-cover bg-center acres-signup'>
             <div>
-                <h1 className='font-nemek text-[2.0rem] text-white mb-14 signup-header md:mt-24'>
+                <h1 className='font-nemek text-[2.0rem] text-neutral-950 mb-14 signup-header md:mt-24'>
                     Become a memeber
                 </h1>
             </div>
             
             <section className='w-full sm:max-w-[500px] px-8'>
-                <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-jost text-white'>
-                    <label className='text-white text-xl md:text-xl font-jost tracking-wide signup-label'>Email:</label>
+                <form onSubmit={handleSubmit} className='flex flex-col space-y-4 font-jost font-medium text-neutral-950'>
+                    <label className='text-neutral-950 text-xl md:text-xl font-jost tracking-wide signup-label'>Email:</label>
                     <input 
-                        className='bg-transparent backdrop-blur-xl outline-none border-2 border-white py-1 pl-2 text-[1.1rem] md:text-[1.2rem] placeholder:text-neutral-300 tracking-wide rounded-md shadow-lg shadow-neutral-950/80'
+                        className='bg-transparent backdrop-blur-xl outline-none border-2 border-neutral-950 py-1 pl-2 text-[1.1rem] md:text-[1.2rem] placeholder:text-neutral-950 tracking-wide rounded-md shadow-lg shadow-neutral-950/80'
                         type='email'
                         placeholder='Enter Email'
                         value={email}
@@ -73,10 +73,10 @@ const SignUp = () => {
                         required
                     />
 
-                    <label className='text-white text-xl md:text-xl font-jost tracking-wide signup-label'>Password:</label>
-                    <div className='flex justify-between items-center border-2 border-white py-1 pl-2 rounded-md bg-transparent backdrop-blur-lg shadow-lg shadow-neutral-950/80'>
+                    <label className='text-neutral-950 text-xl md:text-xl font-jost font-medium tracking-wide signup-label'>Password:</label>
+                    <div className='flex justify-between items-center border-2 border-neutral-950 py-1 pl-2 rounded-md bg-transparent backdrop-blur-lg shadow-lg shadow-neutral-950/80'>
                         <input 
-                            className='bg-transparent backdrop-blur-xl outline-none text-[1.1rem] md:text-[1.2rem] placeholder:text-neutral-300 tracking-wide'
+                            className='bg-transparent backdrop-blur-xl outline-none text-[1.1rem] md:text-[1.2rem] placeholder:text-neutral-950 tracking-wide'
                             type={togglePassword ? 'text' : 'password'}
                             placeholder='Password'
                             value={password}
@@ -84,17 +84,17 @@ const SignUp = () => {
                             required 
                         />
                         <i onClick={handleTogglePassword} className='cursor-pointer'>
-                            {togglePassword ? <FaEyeSlash size={22} color='white' className='mr-3' /> : <FaEye size={22} color='white' className='mr-3' />}
+                            {togglePassword ? <FaEyeSlash size={22} color='neutral-950' className='mr-3' /> : <FaEye size={22} color='neutral-950' className='mr-3' />}
                         </i>
                     </div>
                     
                     <div className='text-[1rem] md:text-[1.1rem] text-center space-y-2 pt-6'>
-                        <p>Must be at least 8 characters long: {passwordValidation.minLength ? <FaCircleCheck size={20} className='inline ' color='#5FD85F'/> : <FaCircleXmark size={20} className='inline' color='white'/>}</p>
-                        <p>Must include one special character: {passwordValidation.specialChar ? <FaCircleCheck size={20} className='inline' color='#5FD85F'/> : <FaCircleXmark size={20} className='inline' color='white'/>}</p>
+                        <p>Must be at least 8 characters long: {passwordValidation.minLength ? <FaCircleCheck size={20} className='inline ' color='#5FD85F'/> : <FaCircleXmark size={20} className='inline' color='neutral-950'/>}</p>
+                        <p>Must include one special character: {passwordValidation.specialChar ? <FaCircleCheck size={20} className='inline' color='#5FD85F'/> : <FaCircleXmark size={20} className='inline' color='neutral-950'/>}</p>
                     </div>
 
                     <div className='text-center pt-8'>
-                        <button type='submit' className='bg-white border-2 border-white py-2 px-6 rounded-md font-jost font-semibold text-[1.rem] text-neutral-900 uppercase tracking-wider hover:bg-neutral-900 hover:text-white hover:scale-55 transition duration-200 shadow-lg shadow-neutral-950/80'>
+                        <button type='submit' className='bg-white border-2 border-neutral-950 py-2 px-6 rounded-md font-jost font-semibold text-[1.rem] text-neutral-950 uppercase tracking-wider hover:bg-neutral-950 hover:text-white hover:scale-55 transition duration-200 shadow-lg shadow-neutral-950/80'>
                             create
                         </button>
                     </div>

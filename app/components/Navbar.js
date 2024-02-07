@@ -32,28 +32,34 @@ const Navbar = () => {
 
     useEffect(() => {
         const changeColor = () => {
-            if(window.scrollY >= 25) {
-                setColor('white')
-                setTextColor('#0a0a0a')
-                setBoxShadow('0 4px 2px -2px rgba(0,0,0,.2)')
+            if (window.scrollY >= 25) {
+                
+                setBoxShadow('0 4px 2px -2px rgba(0,0,0,.2)');
             } else {
-                setColor('')
-                setTextColor('')
-                setBoxShadow('0 0px 0px -0px rgba(0,0,0,0)')
+                
+                setBoxShadow('0 0px 0px -0px rgba(0,0,0,0)');
             }
-        }
-        window.addEventListener('scroll', changeColor)
-    }, [])
+        };
+
+        window.addEventListener('scroll', changeColor);
+
+        return () => {
+            window.removeEventListener('scroll', changeColor);
+        };
+    }, []);
+
+    
+
 
 
 
   return (
-    <header style={{backgroundColor: `${color}`, color: `${textColor}`, boxShadow: `${boxShadow}`}} className='flex items-center justify-between fixed w-full p-3 text-white z-50 transtion duration-200'>
+    <header  className='flex items-center justify-between fixed w-full py-2 px-3 text-white z-50 transtion duration-200 rounded-b-sm'>
         <h1 className='text-[1.5rem] tracking-wide uppercase font-bold cursor-pointer'>
             <Link href="/" className='font-nemek tracking-normal'>Art Acres</Link>
         </h1>
 
-        <nav className='hidden lg:inline'>
+        <nav style={{ boxShadow: boxShadow }} className='hidden lg:inline bg-white py-2 px-8 rounded-md text-neutral-950'>
             <ul className='flex items-center space-x-8 text-[1.1rem] uppercase tracking-wide font-jost font-bold'>
                 
                 <li className='hover:scale-105 transition duration-150 cursor-pointer'>

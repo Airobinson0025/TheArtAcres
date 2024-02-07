@@ -11,7 +11,7 @@ const Banner = () => {
       </video>
       
       {/* Text Content Centered Over Video */}
-      <div className='z-10 text-white text-left pl-8 sm:pl-0 sm:text-center sm:space-y-2'>
+      <div className='z-10 text-white text-left pl-8 sm:pl-0 sm:text-center sm:space-y-2 pt-12'>
         <h1 className='uppercase text-[4.25rem] sm:text-[4rem] font-nemek tracking-wide banner-heading'>
           The <br className='sm:hidden'/> Art Acres
         </h1>
