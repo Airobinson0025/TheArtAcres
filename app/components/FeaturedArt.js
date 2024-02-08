@@ -107,9 +107,9 @@ const arts = [
 
 const FeaturedArt = () => {
   return (
-    <div className='ml-0 md:ml-7 flex flex-col items-center md:items-start overflow-scroll scrollbar-track-transparent scrollbar-thumb-neutral-950 scrollbar-thin '>
+    <div className='ml-0 md:mx-10 flex flex-col items-center md:items-start overflow-scroll scrollbar-track-transparent scrollbar-thumb-neutral-950 scrollbar-thin '>
         
-        <div className='flex flex-col items-center justify-center md:flex-row space-y-10 md:space-y-0 md:space-x-10 pb-8 md:ml-4 md:overflow-auto'>
+        <div className='flex flex-col items-center justify-center md:flex-row space-y-10 md:space-y-0 md:space-x-10 pb-12 md:overflow-auto'>
           {arts.map((art) => (
             <ArtsCard
             key={art.id}

@@ -26,7 +26,7 @@ const ViewArt = () => {
         <div className='flex flex-col items-start font-jost space-y-4'>
           <h1 className='font-medium text-[2.5rem] md:text-[3rem]'>{title}</h1>
           <p className='text-[1.5rem]'>${price}</p>
-          <p className='text-[1.2rem] font-medium'>Created By: {artist}</p>
+          <p className='text-[1.2rem]'>Created By: {artist}</p>
           <p className='tracking-wide'>Artist&apos;s Note: {sellerNote}</p>
           <Link href='/cart'>
             <button className='font-jost text-sm text-white uppercase tracking-wider bg-neutral-950 py-2 px-4 border-2 border-neutral-900 rounded-md hover:bg-white hover:text-neutral-950 transition duration-200 mt-2'>
