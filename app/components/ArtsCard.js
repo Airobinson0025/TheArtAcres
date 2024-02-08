@@ -5,12 +5,12 @@ import { useRouter } from 'next/navigation';
 
 
 
-const ArtsCard = ({ image, title, price, sellerNote }) => {
+const ArtsCard = ({ image, title, price, sellerNote, artist }) => {
   const router = useRouter();
   
   const viewArt = () => {
     const pathname = '/viewart';
-    const queryParams = { title:title, price:price, image:image, sellerNote:sellerNote };
+    const queryParams = { title:title, price:price, image:image, sellerNote:sellerNote, artist:artist };
 
     const url = new URL(pathname, window.location.origin);
     url.search = new URLSearchParams(queryParams).toString();
@@ -21,7 +21,7 @@ const ArtsCard = ({ image, title, price, sellerNote }) => {
   
 return (
     <div className='flex flex-col'>
-      <section className='relative w-[340px] h-[390px] md:w-[300px] md:h-[350px] lg:w-[220px] lg:h-[250px] xl:w-[270px]'>
+      <section className='relative w-[340px] h-[390px] md:w-[300px] md:h-[350px] lg:w-[240px] lg:h-[280px] xl:w-[270px]'>
         <div className='absolute inset-0 '>
           <Image src={image} layout='fill' objectFit='cover' sizes='100vw' alt='art' className='hover:scale-95 transition duration-300 rounded-md' />
         </div>

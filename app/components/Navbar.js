@@ -31,35 +31,31 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        const changeColor = () => {
-            if (window.scrollY >= 25) {
-                
-                setBoxShadow('0 4px 2px -2px rgba(0,0,0,.2)');
+        const colorChange = () => {
+            if(window.scrollY >= 25){
+                setColor('white')
+                setTextColor('black')
+                setBoxShadow('0 0 10px rgba(0, 0, 0, 0.2)')
             } else {
-                
-                setBoxShadow('0 0px 0px -0px rgba(0,0,0,0)');
+                setColor('transparent')
+                setTextColor('white')
+                setBoxShadow('none')
             }
-        };
-
-        window.addEventListener('scroll', changeColor);
-
+        }
+        window.addEventListener('scroll', colorChange)
         return () => {
-            window.removeEventListener('scroll', changeColor);
-        };
-    }, []);
-
-    
+            window.removeEventListener('scroll', colorChange)
+        }
+    })
 
 
-
-
-  return (
-    <header  className='flex items-center justify-between fixed w-full py-2 px-3 text-white z-50 transtion duration-200 rounded-b-sm'>
-        <h1 className='text-[1.5rem] tracking-wide uppercase font-bold cursor-pointer'>
-            <Link href="/" className='font-nemek tracking-normal'>Art Acres</Link>
+    return (
+    <header style={{ backgroundColor: color , color: textColor, boxShadow: boxShadow }} className='flex items-center justify-between fixed w-full p-2 text-white z-50 transtion duration-200 rounded-b-sm'>
+        <h1 className='text-[1.5rem] tracking-wide uppercase font-bold cursor-pointer '>
+            <Link href="/" className='font-nemek tracking-norma1 rounded-md'>Art Acres</Link>
         </h1>
 
-        <nav style={{ boxShadow: boxShadow }} className='hidden lg:inline bg-white py-2 px-8 rounded-md text-neutral-950'>
+        <nav className='hidden lg:inline rounded-md'>
             <ul className='flex items-center space-x-8 text-[1.1rem] uppercase tracking-wide font-jost font-bold'>
                 
                 <li className='hover:scale-105 transition duration-150 cursor-pointer'>
