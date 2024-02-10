@@ -22,7 +22,7 @@ const Navbar = () => {
             height: 0,
             transition: {
                 ease: 'easeInOut',
-                duration: 0.5,
+                duration: 0.2,
                 delay: 0
             }
         }
@@ -35,12 +35,12 @@ const Navbar = () => {
 
     return (
     <header className='flex items-center justify-between fixed w-full px-2 py-3 text-neutral-950 bg-white z-50 transtion duration-200 shadow-md shadow-neutral-800/40'>
-        <h1 className='text-[1.5rem] tracking-wide uppercase font-bold cursor-pointer '>
+        <h1 className='text-[1.75rem] tracking-wide uppercase font-bold cursor-pointer '>
             <Link href="/" className='font-nemek tracking-norma1 rounded-md'>Art Acres</Link>
         </h1>
 
-        <div className='hidden md:flex items-center justify-between pl-2 pr-2 border-2 border-neutral-950 rounded-lg text-neutral-950 font-jost mx-24 flex-grow'>
-            <input type='text' placeholder='Search Art' className='placeholder:text-neutral-950 bg-transparent outline-none p-2 text-[1rem]' />
+        <div className='hidden lg:flex items-center justify-between pl-2 pr-2 border-2 border-neutral-950 rounded-md text-neutral-950 font-jost mx-24 flex-grow'>
+            <input type='text' placeholder='Search Art' className='placeholder:text-neutral-950 bg-transparent outline-none py-2 text-[1rem]' />
             <IoSearchSharp size={22} className='hover:cursor-pointer' />
         </div>
 
@@ -64,7 +64,7 @@ const Navbar = () => {
                 <div className='flex items-center justify-center space-x-1'>
                     <li className='hover:scale-105 transition duration-150'>
                         <Link href="/cart">
-                            <IoCart size={30}/>
+                            <IoCart size={28}/>
                         </Link>
                     </li>
                 </div>
@@ -88,7 +88,7 @@ const Navbar = () => {
             variants={item}
             initial={{opacity: 0, height: 0}}
             animate={{opacity: 1, height: '100vh'}}
-            transition={{duration:.3}}
+            transition={{duration:.2}}
             exit='exit'
             className='lg:hidden absolute top-0 bottom-0 left-0 right-0 flex flex-col justify-evenly items-center font-jost font-medium text-left text-[3rem] text-neutral-950 tracking-wide w-full h-screen bg-white'>
                 <div onClick={toggleMenu} className='absolute top-3 right-2'>

@@ -76,30 +76,7 @@ const arts = [
       artist: "Michael Taylor",
       sellerNote: "Capture memories in style with this vintage oil artwork. A tribute to the timeless charm of photography."
   },
-  {
-      id: '10',
-      title: "Moutains Of Mine",
-      price: "99.99",
-      image: "https://images.unsplash.com/photo-1577083639236-0f560d3d771c?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTB8fHBhaW50aW5nc3xlbnwwfHwwfHx8MA%3D%3D",
-      artist: "Benjamin Wilson",
-      sellerNote: "Experience the breathtaking beauty of the Himalayas with this stunning landscape artwork. Let the majesty of the mountains inspire you."
-  },
-  {
-      id: '11',
-      title: "Alien Invasion",
-      price: "299.99",
-      image: "https://images.unsplash.com/photo-1610926950521-ab7e8b45f377?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTh8fHBhaW50aW5nc3xlbnwwfHwwfHx8MA%3D%3D",
-      artist: "Jessica Evans",
-      sellerNote: "Embark on an otherworldly adventure with this captivating artwork depicting an alien invasion."
-  },
-  {
-      id: '12',
-      title: "Japanese Woman",
-      price: "179.99",
-      image: "https://images.unsplash.com/photo-1584448033614-882b971a36f3?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIzfHxwYWludGluZ3N8ZW58MHx8MHx8fDA%3D",
-      artist: "William Thompson",
-      sellerNote: "Capture the elegance and grace of Japanese culture with this captivating portrait. Let the beauty of tradition enrich your space."
-  }
+ 
 ];
 
 
@@ -107,9 +84,9 @@ const arts = [
 
 const FeaturedArt = () => {
   return (
-    <div className='ml-0 md:mx-10 flex flex-col items-center md:items-start overflow-scroll scrollbar-track-transparent scrollbar-thumb-neutral-950 scrollbar-thin '>
+    <section className='ml-0 sm:mx-10 lg:mx-14 flex flex-col items-center md:items-start overflow-scroll scrollbar-track-transparent scrollbar-thumb-neutral-950 scrollbar-thin '>
         
-        <div className='flex flex-col items-center justify-center md:flex-row space-y-10 md:space-y-0 md:space-x-10 pb-12 md:overflow-auto'>
+        <div className='flex flex-col items-center justify-center md:flex-row space-y-14 md:space-y-0 md:space-x-10 pb-12 md:overflow-auto'>
           {arts.map((art) => (
             <ArtsCard
             key={art.id}
@@ -122,7 +99,7 @@ const FeaturedArt = () => {
           ))}
         </div>
     
-    </div>
+    </section>
   )
 }
 
