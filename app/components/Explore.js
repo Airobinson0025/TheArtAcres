@@ -30,7 +30,7 @@ const exploreData = [
 
 const Explore = () => {
   return (
-    <section className='flex flex-col items-center mt-20'>
+    <section className='flex flex-col items-center mt-14'>
         <div className='my-8 font-jost font-bold text-[2.5rem] sm:text-[2.25rem] text-neutral-950 tracking-wider uppercase'>
             <h1>Discover Art</h1>
         </div>

@@ -53,22 +53,22 @@ const Testimonials = () => {
 
     const [ currentTestimonial, setCurrentTestimonial ] = useState(0);
 
-    const lenght = artistTestimonials.length;
+    const length = artistTestimonials.length;
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentTestimonial(currentTestimonial === lenght - 1 ? 0 : currentTestimonial + 1);
+            setCurrentTestimonial(currentTestimonial === length - 1 ? 0 : currentTestimonial + 1);
         }, 5000);
         return () => clearInterval(interval);
-    }, [currentTestimonial, lenght]);
+    }, [currentTestimonial, length]);
 
   return (
-    <section className='flex flex-col items-center md:items-start justify-between testimonials bg-cover bg-center h-[1100px] md:h-[800px] lg:h-[600px] mx-4 lg:mx-10 mt-24 rounded-lg font-jost'>
+    <section className='flex flex-col items-center md:items-start justify-between testimonials bg-cover bg-center h-[950px] md:h-[800px] lg:h-[550px] mx-4 lg:mx-10 mt-24 rounded-lg font-jost'>
         <div className='p-6'>
-            <h1 className='text-white text-[2.5rem] font-medium tracking-wider test-header'>Artists Testimonials</h1>
+            <h1 className='text-white text-[2.2rem] font-medium tracking-wider test-header uppercase'>Artists Testimonials</h1>
         </div>
 
-        <div className='flex flex-col p-8'>
+        <div className='flex flex-col p-8 w-full'>
             {
                 artistTestimonials.map((testimonial, index) => (
                     <div key={index} className={index === currentTestimonial ? 'opacity-1000 transition duration-1000' : 'opacity-0 transition duration-700'}>
@@ -79,7 +79,7 @@ const Testimonials = () => {
                 ))
             }
             <Link href='/signup'>
-                <button className='mt-6 py-1 px-6 border-2 border-white text-[1.2rem] text-white tracking-wide rounded-md hover:bg-white hover:text-neutral-950 transition duration-300'>Start Selling</button>
+                <button className='mt-8 py-2 px-6 border-2 border-white text-[1.2rem] text-white tracking-wide rounded-md hover:bg-white hover:text-neutral-950 transition duration-300'>Start Selling</button>
             </Link>
         </div>
     </section>

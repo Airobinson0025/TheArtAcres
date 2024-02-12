@@ -6,7 +6,7 @@ const TestCard = ({artist, testimonial}) => {
         <div>
             <p className='text-white text-[2.2rem] font- tracking-wide'>{artist}-</p>
         </div>
-        <div className='md:w-3/4'>
+        <div className='md:w-2/3'>
             <p className='text-white text-[1.2rem] tracking-wider leading-8 test-paragraph'>&quot;{testimonial}&quot;</p>
         </div>
     </div>

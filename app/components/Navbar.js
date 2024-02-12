@@ -11,6 +11,11 @@ import { IoSearchSharp } from "react-icons/io5";
 const Navbar = () => {
 
     const [ dropMenu, setDropMenu ] = useState(false);
+    const [ color , setColor ] = useState('white')
+    const [ backgroundColor, setBackgroundColor ] = useState('transparent')
+    const [ boxShadow, setBoxShadow ] = useState('none')
+    const [ borderColor, setBorderColor ] = useState('white');
+    const [ placeholderColor, setPlaceholderColor ] = useState('white')
 
     const toggleMenu = () => {
         setDropMenu(!dropMenu)
@@ -28,21 +33,35 @@ const Navbar = () => {
         }
     }
 
-    
+    useEffect(() => {
+        const changeColor = () => {
+            if(window.scrollY >= 25 ) {
+                setBackgroundColor('white');
+                setColor('black');
+                setBoxShadow('0 0 12px rgba(0,0,0,0.1)');
+                setBorderColor('black');
+                setPlaceholderColor('black');
+
+            } else {
+                setBackgroundColor('transparent');
+                setColor('white');
+                setBoxShadow('none');
+                setBorderColor('white');
+                setPlaceholderColor('white');
+            }
+            
+        }
+        window.addEventListener('scroll', changeColor);
+    })
 
     
 
 
     return (
-    <header className='flex items-center justify-between fixed w-full px-2 py-3 text-neutral-950 bg-white z-50 transtion duration-200 shadow-md shadow-neutral-800/40'>
+    <header style={{color: color, backgroundColor: backgroundColor, boxShadow: boxShadow}} className='flex items-center justify-between fixed w-full p-2 text-white bg-transparent z-50 transtion duration-200'>
         <h1 className='text-[1.75rem] tracking-wide uppercase font-bold cursor-pointer '>
             <Link href="/" className='font-nemek tracking-norma1 rounded-md'>Art Acres</Link>
         </h1>
-
-        <div className='hidden lg:flex items-center justify-between pl-2 pr-2 border-2 border-neutral-950 rounded-md text-neutral-950 font-jost mx-24 flex-grow'>
-            <input type='text' placeholder='Search Art' className='placeholder:text-neutral-950 bg-transparent outline-none py-2 text-[1rem]' />
-            <IoSearchSharp size={22} className='hover:cursor-pointer' />
-        </div>
 
         <nav className='hidden lg:inline rounded-md'>
             <ul className='flex items-center space-x-8 text-[1.1rem] uppercase tracking-wide font-jost font-bold'>
